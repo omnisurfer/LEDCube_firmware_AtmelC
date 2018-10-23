@@ -20,6 +20,8 @@
 #include "utilities/text_cmd_parser.h"
 #include "utilities/stream_handler.h"
 
+#include "math/vec3.h"
+
 #include "devices/LEDCube.h"
 
 void InitTimer(void);
@@ -75,6 +77,26 @@ int main(void)
 		.cubeLayerLineCount = CUBE_LAYER_LINES,
 		.cubeLayerCount = CUBE_LAYER_COUNT
 	};
+	
+	typedef struct WS2812_GRB_PIXELS WS2812_GRB_PIXELS;
+		
+	struct WS2812_GRB_PIXELS {
+		vec3 pixelRGB;
+		vec3 pixelPos;
+	};	
+	
+	WS2812_GRB_PIXELS cubeArray[CUBE_LAYER_COUNT * CUBE_LAYER_LEDS_PER_LINE * CUBE_LAYER_LINES];
+	
+		cubeArray[0].pixelRGB.r = 0;
+		cubeArray[0].pixelRGB.g	= 0;
+		cubeArray[0].pixelRGB.b = 0;
+		
+		cubeArray[0].pixelPos.x = 0;
+		cubeArray[0].pixelPos.y = 0;
+		cubeArray[0].pixelPos.z = 0;
+		
+		vec3_add(&cubeArray[0].pixelPos, &cubeArray[0].pixelPos);
+		
 	
 	WS2812_GRB_BYTES ledCubeArrayWorkingBuffer[CUBE_LAYER_COUNT * CUBE_LAYER_LEDS_PER_LINE * CUBE_LAYER_LINES] =
 	{

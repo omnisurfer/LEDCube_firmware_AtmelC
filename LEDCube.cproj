@@ -297,6 +297,7 @@
     <Folder Include="src\drivers\" />
     <Folder Include="src\drivers\ASFUSBCDC" />
     <Folder Include="src\drivers\ws2812\" />
+    <Folder Include="src\math" />
     <Folder Include="src\processor\" />
     <Folder Include="src\utilities\" />
     <Folder Include="src\" />
@@ -430,6 +431,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\drivers\ASFUSBCDC\ASFCDCInterface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\math\vec3.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\processor\interrupts.c">
